@@ -17,8 +17,7 @@ const Layout = ({ children, title = "Construtora Elias" }: Props) => (
     <header className="fixed top-0 left-0 right-0">
       <nav className="flex flex-row items-center justify-evenly mt-6 " >
         <Link href="/">Home</Link> | <Link href="/institucional">Institucional</Link> |{" "}
-        <Link href="/portfolio">Portfolio</Link> |{" "}
-        <a href="/api/users">Users API</a>
+        <Link href="/portfolio">Portfolio</Link> 
       </nav>
     </header>
     {children}
