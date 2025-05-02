@@ -1,7 +1,12 @@
 // pages/_app.tsx
 
+import Layout from '../components/Layout'
 import '../styles/globals.css'
 
 export default function App({ Component, pageProps }: any) {
-  return <Component {...pageProps} />
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    )
 }
