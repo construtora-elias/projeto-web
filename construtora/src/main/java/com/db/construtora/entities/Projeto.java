@@ -2,7 +2,6 @@ package com.db.construtora.entities;
 
 import java.util.List;
 import java.util.UUID;
-
 import com.db.construtora.entities.enums.ProjetoTipo;
 
 import jakarta.persistence.CascadeType;
