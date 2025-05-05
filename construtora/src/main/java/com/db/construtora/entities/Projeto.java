@@ -40,7 +40,7 @@ public class Projeto {
     private int quantidadeGaragem;
 
     @Enumerated(EnumType.STRING)
-    private String status;
+    private ProjetoTipo status;
 
     private boolean temPiscina;
 
@@ -60,5 +60,5 @@ public class Projeto {
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private List<Arquivo> arquivos;
 
-
+    
 }
