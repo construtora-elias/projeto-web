@@ -2,7 +2,6 @@ package com.db.construtora.entities;
 
 import java.util.List;
 import java.util.UUID;
-
 import com.db.construtora.entities.enums.ProjetoTipo;
 
 import jakarta.persistence.CascadeType;
@@ -40,7 +39,7 @@ public class Projeto {
     private int quantidadeGaragem;
 
     @Enumerated(EnumType.STRING)
-    private String status;
+    private ProjetoTipo status;
 
     private boolean temPiscina;
 
@@ -60,5 +59,5 @@ public class Projeto {
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private List<Arquivo> arquivos;
 
-
+    
 }
