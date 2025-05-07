@@ -1,27 +1,12 @@
-
-import { useEffect } from "react";
-
 import { useEffect, useState } from "react";
-import { getEmpreendimentos, Empreendimento } from "../api/empreendimentoApi";
 import HeroCarousel from "../components/HeroCarousel";
 import EmpreendimentoCard from "../components/EmpreendimentoCard";
+import { ProjetoDto } from "../interfaces";
 
 
 export default function Home() {
-  const [empreendimentos, setEmpreendimentos] = useState<Empreendimento[]>([]);
+  const [empreendimentos, setEmpreendimentos] = useState<ProjetoDto[]>([]);
 
-
-  return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold">Home </h1>
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getEmpreendimentos();
-      setEmpreendimentos(data);
-    }
-    fetchData();
-  }, []);
 
   return (
     // Container Geral
@@ -36,9 +21,9 @@ export default function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {empreendimentos.map((item) => (
           <EmpreendimentoCard
-            key={item._id}
+            key={item.id}
             endereco={item.endereco || "Sem endereço"}
-            tamanho={item.tamanho || 0}
+            tamanho={item.quantidadeQuartos || 0}
             quartos={item.quantidadeQuartos || 0} cidade={""} tipo={""} vagas={0}          />
         ))}
         

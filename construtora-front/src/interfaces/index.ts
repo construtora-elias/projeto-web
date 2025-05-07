@@ -23,3 +23,4 @@ export type ProjetoDto = {
   cidade: string;
   descricao: string;
 }
+
