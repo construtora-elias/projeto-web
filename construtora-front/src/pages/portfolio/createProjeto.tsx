@@ -9,7 +9,7 @@ export default function CreateProjeto() {
     titulo: '',
     quantidadeVagas: 0,
     quantidadeGaragem: 0,
-    status: '',
+    status: null,
     temPiscina: false,
     tipo: '',
     quantidadeQuartos: 0,
