@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { ProjetoDto } from '../../interfaces';
+import { ProjetoDto, ProjetoTipoOptions } from '../../interfaces';
 import { createProjeto } from '../../api/axios';
 
 export default function CreateProjeto() {
@@ -11,7 +11,7 @@ export default function CreateProjeto() {
     quantidadeGaragem: 0,
     status: null,
     temPiscina: false,
-    tipo: '',
+    tipo: null,
     quantidadeQuartos: 0,
     endereco: '',
     cidade: '',
@@ -73,9 +73,23 @@ export default function CreateProjeto() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="tipo" className="text-gray-700 font-medium mb-1">Tipo</label>
-            <input id="tipo" name="tipo" value={projeto.tipo} onChange={handleChange} placeholder="Tipo" className="border border-gray-300 p-3 rounded-md" />
-          </div>
+  <label htmlFor="tipo" className="text-gray-700 font-medium mb-1">Tipo do Projeto</label>
+  <select
+    id="tipo"
+    name="tipo"
+    value={projeto.tipo ?? ""}
+    onChange={handleChange}
+    className="border border-gray-300 p-3 rounded-md"
+  >
+    <option value="" disabled>Selecione o tipo</option>
+    {ProjetoTipoOptions.map((option) => (
+      <option key={option.value} value={option.value}>
+        {option.label}
+      </option>
+    ))}
+  </select>
+</div>
+
 
           <div className="flex flex-col">
             <label htmlFor="quantidadeQuartos" className="text-gray-700 font-medium mb-1">Quantidade de Quartos</label>
