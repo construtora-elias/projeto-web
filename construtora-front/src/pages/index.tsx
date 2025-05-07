@@ -1,10 +1,19 @@
+
+import { useEffect } from "react";
+
 import { useEffect, useState } from "react";
 import { getEmpreendimentos, Empreendimento } from "../api/empreendimentoApi";
 import HeroCarousel from "../components/HeroCarousel";
 import EmpreendimentoCard from "../components/EmpreendimentoCard";
 
+
 export default function Home() {
   const [empreendimentos, setEmpreendimentos] = useState<Empreendimento[]>([]);
+
+
+  return (
+    <main className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-4xl font-bold">Home </h1>
 
   useEffect(() => {
     async function fetchData() {
