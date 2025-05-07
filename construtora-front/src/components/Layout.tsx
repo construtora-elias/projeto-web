@@ -75,13 +75,6 @@ const Layout = ({ children, title = "Construtora Elias" }: Props) => (
       <span>Footer</span>
     </footer>
   </div>
-
-    <main className="pt-24">
-    {children}
-    </main>
-    <footer className="flex flex-row items-center justify-center fixed bottom-0 left-0 right-0">
-      <span>Footer</span>
-    </footer>
   </div>
 );
 

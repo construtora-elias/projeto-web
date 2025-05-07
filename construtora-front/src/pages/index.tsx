@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import HeroCarousel from "../components/HeroCarousel";
 import EmpreendimentoCard from "../components/EmpreendimentoCard";
 import { ProjetoDto } from "../interfaces";
+import { mockProjetos } from "../api/MockData";
 
 
 export default function Home() {
-  const [empreendimentos, setEmpreendimentos] = useState<ProjetoDto[]>([]);
+  // const [empreendimentos, setEmpreendimentos] = useState<ProjetoDto[]>([]);
+  const empreendimentos = mockProjetos
 
 
   return (
@@ -22,9 +24,7 @@ export default function Home() {
         {empreendimentos.map((item) => (
           <EmpreendimentoCard
             key={item.id}
-            endereco={item.endereco || "Sem endereço"}
-            tamanho={item.quantidadeQuartos || 0}
-            quartos={item.quantidadeQuartos || 0} cidade={""} tipo={""} vagas={0}          />
+            projetoItem={item}        />
         ))}
         
         
