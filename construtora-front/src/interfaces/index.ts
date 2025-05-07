@@ -9,3 +9,17 @@ export type User = {
   name: string;
 };
 
+
+export type ProjetoDto = {
+  id?: number;
+  titulo: string;
+  quantidadeVagas: number;
+  quantidadeGaragem: number;
+  status: string; // alterar para enum
+  temPiscina: boolean;
+  tipo: string; // alterar para enum
+  quantidadeQuartos: number;
+  endereco: string;
+  cidade: string;
+  descricao: string;
+}
