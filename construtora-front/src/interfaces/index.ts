@@ -12,7 +12,9 @@ export type ProjetoDto = {
   quantidadeGaragem: number;
   status: ProjetoStatus; 
   temPiscina: boolean;
-  tipo: ProjetoTipo; // alterar para enum
+
+  tipo: ProjetoTipo; 
+
   quantidadeQuartos: number;
   endereco: string;
   cidade: string;
