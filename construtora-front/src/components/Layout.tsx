@@ -58,7 +58,7 @@ const Layout = ({ children, title = "Construtora Elias" }: Props) => (
     </div>
 
       {/* MENU PRINCIPAL */}
-      <nav className="flex flex-row items-center justify-center gap-4 py-2">
+      <nav className="flex flex-wrap justify-center gap-4">
         <Link href="/">Home</Link> | <Link href="/">Empreendimentos</Link> |{" "}
         <Link href="/institucional">Encontre Seu Empreendimento</Link> |{" "}
         <Link href="/">Lançamentos</Link> | <Link href="/">Já é Cliente?</Link> |{" "}
