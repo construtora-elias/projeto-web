@@ -1,6 +1,7 @@
 package com.db.construtora.dto;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 
@@ -37,6 +38,19 @@ public class DtoUtils {
             .cidade(projetoCreationDto.cidade())
             .descricao(projetoCreationDto.descricao())
             .build();
+    }
+
+    public static void updateProjetoFromDto(Projeto projeto, ProjetoDto projetoDto) {
+        Optional.ofNullable(projetoDto.titulo()).filter(t -> !t.isBlank()).ifPresent(projeto::setTitulo);
+        Optional.ofNullable(projetoDto.quantidadeVagas()).filter(v -> v > 0).ifPresent(projeto::setQuantidadeVagas);
+        Optional.ofNullable(projetoDto.quantidadeGaragem()).filter(g -> g > 0).ifPresent(projeto::setQuantidadeGaragem);
+        Optional.ofNullable(projetoDto.status()).ifPresent(projeto::setStatus);
+        projeto.setTemPiscina(projetoDto.temPiscina());
+        Optional.ofNullable(projetoDto.tipo()).ifPresent(projeto::setTipo);
+        Optional.ofNullable(projetoDto.quantidadeQuartos()).filter(q -> q > 0).ifPresent(projeto::setQuantidadeQuartos);
+        Optional.ofNullable(projetoDto.endereco()).filter(e -> !e.isBlank()).ifPresent(projeto::setEndereco);
+        Optional.ofNullable(projetoDto.cidade()).filter(c -> !c.isBlank()).ifPresent(projeto::setCidade);
+        Optional.ofNullable(projetoDto.descricao()).filter(d -> !d.isBlank()).ifPresent(projeto::setDescricao);
     }
 
     public static ProjetoDto convertModelToDto(Projeto projeto){
