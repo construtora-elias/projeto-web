@@ -9,12 +9,12 @@ export default function Home() {
   const lancamentos: ProjetoDto[] = mockProjetos.slice(4, 8);
 
   const imagens = [
-    { url: '/imagens/foto1.jpg.jpeg', descricao: 'Ui' },
+    { url: '/imagens/foto1.jpg.jpeg', descricao: 'Casa Duplex' },
     { url: '/imagens/foto2.jpg.jpeg', descricao: 'Ui' },
-    { url: '/images/foto3.jpg', descricao: '' },
-    { url: '/images/foto1.jpg', descricao: 'Ui' },
-    { url: '/images/foto2.jpg', descricao: '' },
-    { url: '/images/foto3.jpg', descricao: '' },
+    { url: '/imagens/foto3.jpg.jpeg', descricao: 'Ui' },
+    { url: '/imagens/foto4.jpg.jpeg', descricao: 'Ui' },
+    
+    
   ];
 
 
