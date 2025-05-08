@@ -23,7 +23,8 @@ export type ProjetoDto = {
 
 export enum ProjetoStatus {
   FINALIZADO = "Finalizado",
-  EM_ANDAMENTO = "Em andamento"
+  EM_ANDAMENTO = "Em andamento",
+  LANCAMENTO = "LANCAMENTO"
 }
 
 // usar em dropDown
