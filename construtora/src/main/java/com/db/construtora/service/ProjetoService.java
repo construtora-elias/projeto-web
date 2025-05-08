@@ -2,7 +2,6 @@ package com.db.construtora.service;
 
 import java.util.List;
 import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import com.db.construtora.dto.DtoUtils;
@@ -42,6 +41,26 @@ public class ProjetoService {
         return DtoUtils.convertModelToDto(projeto);
     }
 
+    public ProjetoDto updateProjeto(UUID projetoId, ProjetoDto projetoDto){
+        Projeto projeto = projetoRepository.findById(projetoId).orElseThrow(ProjetoNotFound::new);
+
+        DtoUtils.updateProjetoFromDto(projeto, projetoDto);
+
+        Projeto projetoUpdated = projetoRepository.save(projeto);
+
+        return DtoUtils.convertModelToDto(projetoUpdated);
+        
+    }
     
+    public void deleteProjetoById(UUID projetoId){
+        projetoRepository.findById(projetoId).orElseThrow(ProjetoNotFound::new);
+
+        projetoRepository.deleteById(projetoId);
+    }
+
+    public void deleteAllProjetos(){
+        projetoRepository.deleteAll();
+    }
+
 
 }
