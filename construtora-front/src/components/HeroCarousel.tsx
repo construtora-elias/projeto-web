@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -18,6 +19,7 @@ export default function HeroCarousel({ imagens }) {
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}
+
         breakpoints={{
           640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2.5 },
