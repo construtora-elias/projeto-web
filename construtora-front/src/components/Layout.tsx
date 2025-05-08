@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -10,7 +10,10 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = "Construtora Elias" }: Props) => (
+const Layout = ({ children, title = "Construtora Elias" }: Props) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  return(
   <div>
     <Head>
       <title>{title}</title>
@@ -21,7 +24,7 @@ const Layout = ({ children, title = "Construtora Elias" }: Props) => (
   <div>
 
     {/* HEADER FIXO INCLUINDO TOPBAR + MENU */}
-    <header className="fixed top-0 left-0 right-0 bg-white shadow z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white z-50">
       {/* TOPBAR */}
       <div className="bg-gray-900 text-white text-sm">
         <div className="max-w-full mx-auto flex justify-center items-center px-4 py-2">
@@ -57,25 +60,67 @@ const Layout = ({ children, title = "Construtora Elias" }: Props) => (
       </div>
     </div>
 
-      {/* MENU PRINCIPAL */}
-      <nav className="flex flex-wrap justify-center gap-4">
-        <Link href="/">Home</Link> | <Link href="/">Empreendimentos</Link> |{" "}
-        <Link href="/institucional">Encontre Seu Empreendimento</Link> |{" "}
-        <Link href="/">Lançamentos</Link> | <Link href="/">Já é Cliente?</Link> |{" "}
-        <Link href="/portfolio">Entre em Contato</Link> | <Link href="/">Quem somos</Link>
-      </nav>
-    </header>
+      {/* MENU PRINCIPAL + BOTÃO LATERAL */}
+      <nav className="relative flex justify-center items-center px-6 py-4 mt-2">
+            {/* Links principais */}
+            <div className="flex flex-wrap gap-4">
+              <Link href="/">Home</Link>
+              <Link href="/">Empreendimentos</Link>
+              <Link href="/">Lançamentos</Link>
+              <Link href="/">Quem somos</Link>
+            </div>
 
-    {/* ATENÇÃO: padding-top ajustado para somar topbar + menu */}
-    <main className="pt-32">
-      {children}
-    </main>
+            {/* Botão abrir painel */}
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="absolute right-8 text-2xl p-2 focus:outline-none"
+              aria-label="Abrir menu lateral"
+            >
+              ☰
+            </button>
+          </nav>
+        </header>
 
-    <footer className="flex flex-row items-center justify-center fixed bottom-0 left-0 right-0">
-      <span>Footer</span>
-    </footer>
-  </div>
-  </div>
-);
+        {/* ATENÇÃO: padding-top ajustado para somar topbar + menu */}
+        <main className="pt-32">
+          {children}
+        </main>
+
+        <footer className="flex flex-row items-center justify-center fixed bottom-0 left-0 right-0">
+          <span>Footer</span>
+        </footer>
+
+        {/* Fundo escuro ao abrir sidebar */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        {/* Sidebar lateral direita */}
+        <div
+          className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform ${
+            sidebarOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300`}
+        >
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="absolute top-4 right-4 text-2xl"
+            aria-label="Fechar menu lateral"
+          >
+            ✕
+          </button>
+
+          <nav className="flex flex-col space-y-4 p-6 mt-12">
+            <Link href="/extra1">Encontre Seu Empreendimento</Link>
+            <Link href="/extra2">Já é Cliente?</Link>
+            <Link href="/extra3">Entre em Contato</Link>
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Layout;
