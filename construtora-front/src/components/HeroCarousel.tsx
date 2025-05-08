@@ -10,8 +10,8 @@ export default function HeroCarousel({ imagens }) {
       <Swiper
         modules={[Autoplay, Pagination]}
         centeredSlides={true}
-        slidesPerView={2.8} // mostra 2.5 slides (ajuste conforme necessário)
-        spaceBetween={20}  // espaçamento entre slides
+        slidesPerView={2.8}
+        spaceBetween={20}
         loop={true}
         autoplay={{
           delay: 3000,
@@ -26,25 +26,18 @@ export default function HeroCarousel({ imagens }) {
       >
         {imagens.map((img, index) => (
           <SwiperSlide
-            key={index}
-            className="rounded-xl overflow-hidden shadow-xl"
-          >
-            <img
-              src={img.url}
-              alt={img.descricao || `Imagem ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </SwiperSlide>
+          key={index}
+          style={{ width: '300px', height: '400px' }}
+          className="overflow-hidden shadow-xl rounded-xl" // ← aqui está a borda arredondada
+        >
+          <img
+            src={img.url}
+            alt={img.descricao || `Imagem ${index + 1}`}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
 }
-
-
-
-
-
-
-
-
