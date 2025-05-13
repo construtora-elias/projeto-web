@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
       <header>
+        
         {/* Topbar */}
+
         <div className="bg-gray-900 text-gray-300 text-sm">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-8 px-4 py-2">
             <div className="flex space-x-4">
@@ -25,8 +29,16 @@ export default function Header() {
         </div>
   
         {/* Logo + Menu → você monta aqui depois */}
+
         <nav className="bg-white shadow">
-          {/* Logo, links, menu principal aqui */}
+          <div className="flex justify-center items-center px-6 py-4">
+            <div className="flex flex-wrap gap-4">
+              <Link href="/">Home</Link>
+              <a href="#empreendimentos">Empreendimentos</a>
+              <Link href="/lancamentos">Lançamentos</Link>
+              <Link href="/quemsomos">Quem somos</Link>
+            </div>
+          </div>
         </nav>
       </header>
     );

@@ -6,6 +6,7 @@
 
 
 export type ProjetoDto = {
+  imagem: any;
   id?: number;
   titulo: string;
   quantidadeVagas: number;

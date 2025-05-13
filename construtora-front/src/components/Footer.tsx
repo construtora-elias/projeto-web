@@ -64,7 +64,7 @@ export default function Footer() {
       {/* Botão flutuante do WhatsApp */}
       <a
         href="https://wa.me/558632233123"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition z-50"
         target="_blank"
         rel="noopener noreferrer"
       >
