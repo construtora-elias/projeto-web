@@ -1,23 +1,25 @@
-'use client'
+
 
 import { useState } from 'react';
 import { ProjetoDto, ProjetoTipoOptions } from '../../interfaces';
 import { createProjeto } from '../../api/axios';
 
 export default function CreateProjeto() {
-  const [projeto, setProjeto] = useState<ProjetoDto>({
-    titulo: '',
-    quantidadeVagas: 0,
-    quantidadeGaragem: 0,
+  const [projeto, setProjeto] = useState<ProjetoDto>(
+  {
+    id: 1,
+    titulo: 'Meu Projeto',
+    imagem: 'foto1.jpeg',
+    quantidadeVagas: 2, 
+    quantidadeGaragem: 1,
     status: null,
     temPiscina: false,
     tipo: null,
-    quantidadeQuartos: 0,
-    endereco: '',
-    cidade: '',
-    descricao: ''
-  });
-
+    quantidadeQuartos: 3,
+    endereco: 'Rua X',
+    cidade: 'Teresina',
+    descricao: 'Projeto de exemplo'
+});
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
 

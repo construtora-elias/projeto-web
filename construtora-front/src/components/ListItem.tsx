@@ -1,16 +1,20 @@
 import React from "react";
-import Link from "next/link";
+import { ProjetoDto } from "../interfaces";
+import EmpreendimentoCard from "./EmpreendimentoCard";
 
-import { User } from "../interfaces";
-
-type Props = {
-  data: User;
+type ListItemProps = {
+  projeto: ProjetoDto[];
 };
 
-const ListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
-    {data.id}:{data.name}
-  </Link>
-);
+const ListItem = ({ projeto }: ListItemProps) => {
+  return (
+    <div>
+      {projeto.map((item) => (
+        <EmpreendimentoCard key={`empre-${item.id}`} projetoItem={item} />
+      ))}
+    </div>
+  );
+};
 
 export default ListItem;
+

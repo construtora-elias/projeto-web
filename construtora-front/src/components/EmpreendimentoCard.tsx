@@ -1,4 +1,5 @@
 import { ProjetoDto } from "../interfaces";
+import Link from 'next/link';
 
 type EmpreendimentoCardProps = {
     endereco: string;
@@ -9,12 +10,17 @@ type EmpreendimentoCardProps = {
     tamanho:number;
   };
   
-  export default function EmpreendimentoCard({projetoItem}) {
-    const projeto = projetoItem as ProjetoDto
+  export default function EmpreendimentoCard({ projetoItem }) {
+    const projeto = projetoItem as ProjetoDto;
+  
     return (
       <div className="bg-white rounded-lg shadow-lg max-w-xs w-full flex flex-col">
-        <div className="w-full h-48 bg-gray-300 flex items-center justify-center">
-          <span className="text-gray-500">Sua Imagem aqui cachorra</span>
+        <div className="w-full h-48 flex items-center justify-center rounded-t-lg overflow-hidden">
+          <img
+            src={`/${projeto.imagem}`}
+            alt={projeto.titulo}
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="bg-purple-700 text-white text-center py-2 text-sm font-semibold">
           {projeto.status}
@@ -27,13 +33,13 @@ type EmpreendimentoCardProps = {
             <p className="text-sm text-gray-700 mb-1">Quartos: {projeto.quantidadeQuartos}</p>
             <p className="text-sm text-gray-700 mb-4">Vagas de Garagem: {projeto.quantidadeVagas}</p>
           </div>
-          <button className="w-full border-2 border-purple-700 text-purple-700 px-4 py-2 rounded font-semibold hover:bg-purple-700 hover:text-white transition">
-            Conheça
-          </button>
+          <Link href={`/empreendimento/${projeto.id}`}>
+            <button className="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow transition duration-300">
+              Conheça
+            </button>
+          </Link>
         </div>
       </div>
     );
   }
-  
-  
   
